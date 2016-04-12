@@ -1,0 +1,27 @@
+name: Reading Time
+version: 1.0.6
+description: "Add human readable reading time to your pages."
+icon: clock-o
+author:
+  name: Team Grav
+  email: devs@getgrav.org
+  url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-plugin-readingtime
+demo: http://www.getgrav.org/blog
+keywords: readingtime, plugin
+bugs: https://github.com/getgrav/grav-plugin-readingtime/issues
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
