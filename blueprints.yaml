@@ -25,3 +25,27 @@ form:
         0: Disabled
       validate:
         type: bool
+
+    words_per_minute:
+      type: text
+      size: x-small
+      append: wpm
+      label: Words-per-minute
+      validate:
+        type: int
+        min: 1
+        max: 1000
+
+    format:
+      type: text
+      label: Format
+      size: large
+
+    round:
+      type: select
+      size: small
+      classes: fancy
+      label: Round to nearest...
+      options:
+          seconds: second
+          minutes: minute

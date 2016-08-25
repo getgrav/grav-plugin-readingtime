@@ -29,17 +29,18 @@ class TwigReadingTimeFilters extends \Twig_Extension
   {
 
     $this->mergeConfig($this->grav['page']);
+    $language = $this->grav['language'];
 
     $options = array_merge($this->grav['config']->get('plugins.readingtime'), $params);
 
     $words = str_word_count(strip_tags($content));
-    $wpm = $options['word_per_minute'];
+    $wpm = $options['words_per_minute'];
 
     $minutes_short_count = floor($words / $wpm);
     $seconds_short_count = floor($words % $wpm / ($wpm / 60));
 
-    $minutes_text = ( $minutes_short_count <= 1 ) ? $options['minute_label'] : $options['minutes_label'];
-    $seconds_text = ( $seconds_short_count <= 1 ) ? $options['second_label'] : $options['seconds_label'];
+    $minutes_text = $language->translate(( $minutes_short_count == 1 ) ? 'PLUGIN_READINGTIME.MINUTE' : 'PLUGIN_READINGTIME.MINUTES');
+    $seconds_text = $language->translate(( $seconds_short_count == 1 ) ? 'PLUGIN_READINGTIME.SECOND' : 'PLUGIN_READINGTIME.SECONDS');
 
     $round = $options['round'];
     if ($round == 'minutes') {
