@@ -4,3 +4,10 @@ en:
     SECONDS: seconds
     MINUTE: minute
     MINUTES: minutes
+    
+fr:
+  PLUGIN_READINGTIME:
+    SECOND: seconde
+    SECONDS: secondes
+    MINUTE: minute
+    MINUTES: minutes
