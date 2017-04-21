@@ -18,3 +18,10 @@ es:
     SECONDS: segundos
     MINUTE: minuto
     MINUTES: minutos
+
+cs:
+  PLUGIN_READINGTIME:
+    SECOND: sekunda
+    SECONDS: sekundy
+    MINUTE: minuta
+    MINUTES: minuty
