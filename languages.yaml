@@ -4,13 +4,13 @@ en:
     SECONDS: seconds
     MINUTE: minute
     MINUTES: minutes
-    
-fr:
+
+cs:
   PLUGIN_READINGTIME:
-    SECOND: seconde
-    SECONDS: secondes
-    MINUTE: minute
-    MINUTES: minutes
+    SECOND: sekunda
+    SECONDS: sekundy
+    MINUTE: minuta
+    MINUTES: minuty
 
 es:
   PLUGIN_READINGTIME:
@@ -19,9 +19,9 @@ es:
     MINUTE: minuto
     MINUTES: minutos
 
-cs:
+fr:
   PLUGIN_READINGTIME:
-    SECOND: sekunda
-    SECONDS: sekundy
-    MINUTE: minuta
-    MINUTES: minuty
+    SECOND: seconde
+    SECONDS: secondes
+    MINUTE: minute
+    MINUTES: minutes
