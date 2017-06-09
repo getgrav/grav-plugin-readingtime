@@ -25,3 +25,10 @@ fr:
     SECONDS: secondes
     MINUTE: minute
     MINUTES: minutes
+
+it:
+  PLUGIN_READINGTIME:
+    SECOND: secondo
+    SECONDS: secondi
+    MINUTE: minuto
+    MINUTES: minuti
