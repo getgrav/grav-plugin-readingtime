@@ -1,8 +1,10 @@
-# v1.1.1
-## 02/xx/2017
+# v1.2.0
+## 07/xx/2017
 
 1. [](#improved)
     * Added spanish translation [#6](https://github.com/getgrav/grav-plugin-readingtime/pull/6)
+    * Added czech translation [#7](https://github.com/getgrav/grav-plugin-readingtime/pull/7)
+    * Added french translation [#4](https://github.com/getgrav/grav-plugin-readingtime/pull/4)
 
 # v1.1.0
 ## 08/25/2016
