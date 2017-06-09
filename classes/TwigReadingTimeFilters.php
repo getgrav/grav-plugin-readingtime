@@ -39,9 +39,6 @@ class TwigReadingTimeFilters extends \Twig_Extension
     $minutes_short_count = floor($words / $wpm);
     $seconds_short_count = floor($words % $wpm / ($wpm / 60));
 
-    $minutes_text = $language->translate(( $minutes_short_count == 1 ) ? 'PLUGIN_READINGTIME.MINUTE' : 'PLUGIN_READINGTIME.MINUTES');
-    $seconds_text = $language->translate(( $seconds_short_count == 1 ) ? 'PLUGIN_READINGTIME.SECOND' : 'PLUGIN_READINGTIME.SECONDS');
-
     $round = $options['round'];
     if ($round == 'minutes') {
       $minutes_short_count = round(($minutes_short_count*60 + $seconds_short_count) / 60);
@@ -55,6 +52,8 @@ class TwigReadingTimeFilters extends \Twig_Extension
 
     $minutes_long_count = number_format($minutes_short_count, 2);
     $seconds_long_count = number_format($seconds_short_count, 2);
+    $minutes_text = $language->translate(( $minutes_short_count == 1 ) ? 'PLUGIN_READINGTIME.MINUTE' : 'PLUGIN_READINGTIME.MINUTES');
+    $seconds_text = $language->translate(( $seconds_short_count == 1 ) ? 'PLUGIN_READINGTIME.SECOND' : 'PLUGIN_READINGTIME.SECONDS');
 
     $replace = [
       'minutes_short_count'   => $minutes_short_count,

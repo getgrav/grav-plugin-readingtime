@@ -5,6 +5,8 @@
     * Added spanish translation [#6](https://github.com/getgrav/grav-plugin-readingtime/pull/6)
     * Added czech translation [#7](https://github.com/getgrav/grav-plugin-readingtime/pull/7)
     * Added french translation [#4](https://github.com/getgrav/grav-plugin-readingtime/pull/4)
+1. [](#bugfix)
+    * Fix plural when rounding to minutes [#5](https://github.com/getgrav/grav-plugin-readingtime/issues/5)
 
 # v1.1.0
 ## 08/25/2016
