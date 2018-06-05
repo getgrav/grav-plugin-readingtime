@@ -32,3 +32,10 @@ it:
     SECONDS: secondi
     MINUTE: minuto
     MINUTES: minuti
+    
+pt-BR:
+  PLUGIN_READINGTIME:
+    SECOND: segundo
+    SECONDS: segundos
+    MINUTE: minuto
+    MINUTES: minutos
