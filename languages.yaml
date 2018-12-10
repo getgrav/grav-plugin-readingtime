@@ -39,3 +39,10 @@ pt-BR:
     SECONDS: segundos
     MINUTE: minuto
     MINUTES: minutos
+
+de:
+  PLUGIN_READINGTIME:
+    SECOND: Sekunde
+    SECONDS: Sekunden
+    MINUTE: Minute
+    MINUTES: Minuten
