@@ -33,7 +33,7 @@ class TwigReadingTimeFilters extends \Twig_Extension
 
     $options = array_merge($this->grav['config']->get('plugins.readingtime'), $params);
 
-    $words = str_word_count(strip_tags($content));
+    $words = count(preg_split('/\s+/', strip_tags($content)));
     $wpm = $options['words_per_minute'];
 
     $minutes_short_count = floor($words / $wpm);

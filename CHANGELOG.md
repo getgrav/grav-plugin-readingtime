@@ -1,3 +1,9 @@
+# v1.3.0
+## 12/10/2018
+
+1. [](#bugfix)
+    * Handle languages with multibyte characters [#11](https://github.com/getgrav/grav-plugin-readingtime/issues/11)
+    
 # v1.2.0
 ## 07/09/2017
 
