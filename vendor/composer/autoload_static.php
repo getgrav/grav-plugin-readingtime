@@ -6,25 +6,15 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit092b7222424552e6d4e4860f0fe6afdc
 {
-    public static $prefixLengthsPsr4 = array (
-        'G' => 
-        array (
-            'Grav\\Common\\' => 12,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'Grav\\Common\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/classes',
-        ),
+    public static $classMap = array (
+        'Grav\\Common\\TwigReadingTimeFilters' => __DIR__ . '/../..' . '/classes/TwigReadingTimeFilters.php',
+        'Grav\\Plugin\\ReadingTimePlugin' => __DIR__ . '/../..' . '/readingtime.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit092b7222424552e6d4e4860f0fe6afdc::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit092b7222424552e6d4e4860f0fe6afdc::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit092b7222424552e6d4e4860f0fe6afdc::$classMap;
 
         }, null, ClassLoader::class);
     }

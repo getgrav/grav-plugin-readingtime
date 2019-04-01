@@ -20,8 +20,9 @@
     "docs": "https://github.com/getgrav/grav-plugin-readingtime/blob/master/README.md"
   },
   "autoload": {
-    "psr-4": {
-      "Grav\\Common\\": "classes/"
-    }
+    "classmap": [
+      "classes/",
+      "readingtime.php"
+    ]
   }
 }

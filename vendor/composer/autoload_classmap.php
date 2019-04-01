@@ -6,4 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Grav\\Common\\TwigReadingTimeFilters' => $baseDir . '/classes/TwigReadingTimeFilters.php',
+    'Grav\\Plugin\\ReadingTimePlugin' => $baseDir . '/readingtime.php',
 );
