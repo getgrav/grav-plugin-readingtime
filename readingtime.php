@@ -35,7 +35,9 @@ class ReadingTimePlugin extends Plugin
         }
 
         $this->enable([
-            'onTwigExtensions' => ['onTwigExtensions', 0]
+            'onTwigExtensions' => [
+                ['onTwigExtensions', 0]
+            ]
         ]);
     }
 
