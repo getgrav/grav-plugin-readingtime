@@ -1,3 +1,11 @@
+# v1.3.1
+## mm/dd/2019
+
+1. [](#new)
+    * Started using composer
+1. [](#bugfix)
+    * Fixed plugin initialization
+
 # v1.3.0
 ## 12/10/2018
 

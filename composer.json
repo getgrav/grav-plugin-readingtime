@@ -1,0 +1,27 @@
+{
+  "name": "grav-plugin-readingtime",
+  "type": "grav-plugin",
+  "description": "Grav Plugin Reading Time",
+  "keywords": ["reading time"],
+  "homepage": "https://github.com/getgrav/grav-plugin-readingtime",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Team Grav",
+      "email": "devs@getgrav.org",
+      "homepage": "http://getgrav.org",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/getgrav/grav-plugin-readingtime/issues",
+    "irc": "https://chat.getgrav.org",
+    "forum": "http://getgrav.org/forum",
+    "docs": "https://github.com/getgrav/grav-plugin-readingtime/blob/master/README.md"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Common\\": "classes/"
+    }
+  }
+}
