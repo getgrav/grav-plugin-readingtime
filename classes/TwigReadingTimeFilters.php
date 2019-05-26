@@ -1,10 +1,12 @@
-<?php namespace Grav\Common;
+<?php
+
+namespace Grav\Plugin\ReadingTime;
 
 use Grav\Common\Grav;
 use Grav\Common\Page\Page;
-use RocketTheme\Toolbox\ResourceLocator\UniformResourceLocator;
+use Twig_Extension;
 
-class TwigReadingTimeFilters extends \Twig_Extension
+class TwigReadingTimeFilters extends Twig_Extension
 {
   private $grav;
 
