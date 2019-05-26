@@ -20,11 +20,16 @@ class ComposerStaticInitba8cc29b2b127a27a57127d33945f8aa
         ),
     );
 
+    public static $classMap = array (
+        'Grav\\Plugin\\ReadingTimePlugin' => __DIR__ . '/../..' . '/readingtime.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitba8cc29b2b127a27a57127d33945f8aa::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitba8cc29b2b127a27a57127d33945f8aa::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitba8cc29b2b127a27a57127d33945f8aa::$classMap;
 
         }, null, ClassLoader::class);
     }
