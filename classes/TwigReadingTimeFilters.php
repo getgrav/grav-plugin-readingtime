@@ -54,8 +54,22 @@ class TwigReadingTimeFilters extends Twig_Extension
 
     $minutes_long_count = number_format($minutes_short_count, 2);
     $seconds_long_count = number_format($seconds_short_count, 2);
-    $minutes_text = $language->translate(( $minutes_short_count == 1 ) ? 'PLUGIN_READINGTIME.MINUTE' : 'PLUGIN_READINGTIME.MINUTES');
-    $seconds_text = $language->translate(( $seconds_short_count == 1 ) ? 'PLUGIN_READINGTIME.SECOND' : 'PLUGIN_READINGTIME.SECONDS');
+    
+    if (array_key_exists('minute_label', $options) and $minutes_short_count == 1) {
+      $minutes_text = $options['minute_label'];
+    } elseif (array_key_exists('minutes_label', $options) and $minutes_short_count > 1) {
+      $minutes_text = $options['minutes_label'];
+    } else {
+      $minutes_text = $language->translate(( $minutes_short_count == 1 ) ? 'PLUGIN_READINGTIME.MINUTE' : 'PLUGIN_READINGTIME.MINUTES');
+    }
+
+    if (array_key_exists('second_label', $options) and $seconds_short_count == 1) {
+      $seconds_text = $options['second_label'];
+    } elseif (array_key_exists('seconds_label', $options) and $seconds_short_count > 1) {
+      $seconds_text = $options['seconds_label'];
+    } else {
+      $seconds_text = $language->translate(( $seconds_short_count == 1 ) ? 'PLUGIN_READINGTIME.SECOND' : 'PLUGIN_READINGTIME.SECONDS');
+    }
 
     $replace = [
       'minutes_short_count'   => $minutes_short_count,
