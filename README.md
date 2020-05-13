@@ -65,3 +65,23 @@ Display variables for text labels:
 | `{seconds_text}` | Displays the Seconds Text Label (Singular or Plural, Based on Number of Seconds) | `seconds` |
 
 >> NOTE: Any time you are making alterations to a theme's files, you will want to duplicate the theme folder in the `user/themes/` directory, rename it, and set the new name as your active theme. This will ensure that you don't lose your customizations in the event that a theme is updated. Once you have tested the change thoroughly, you can delete or back up that folder elsewhere.
+
+### Include image views
+The number of seconds to view images is added to the reading time of text when `include_image_views` is set to true.
+
+Images are identified by `<img>` tags in `page.content()`.
+
+The default values for `seconds_per_image` (shown below) mean that the first image adds `12` seconds to the reading time, the second adds `11` seconds, the third adds `10` seconds, and so on.
+Only integers, whitespace, and commas are permitted in the string.
+
+```
+seconds_per_image: '12,11,10,9,8,7,6,5,4,3'
+```
+
+If there are more images in a page than what is defined in `seconds_per_image` (e.g., more than 10 images in the default shown above) then subsequent images take the last value (`3` seconds in the default shown above).
+
+The example below adds `5` seconds reading time for all images.
+
+```
+seconds_per_image: 5
+```

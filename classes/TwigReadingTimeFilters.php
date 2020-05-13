@@ -27,6 +27,20 @@ class TwigReadingTimeFilters extends Twig_Extension
     ];
   }
 
+  public function validatePattern($seconds_per_image)
+  {
+    // Get regex that is used in the user interface
+    $pattern = '/' . $this->grav['plugins']->get('readingtime')->blueprints()->schema()->get('seconds_per_image')['validate']['pattern'] . '/';
+
+    if (preg_match($pattern, $seconds_per_image, $matches) === false) {
+      return false;
+    }
+
+    // Note: "$matches[0] will contain the text that matched the full pattern"
+    // https://www.php.net/manual/en/function.preg-match.php
+    return strlen($seconds_per_image) === strlen($matches[0]);
+  }
+
   public function getReadingTime( $content, $params = array() )
   {
 
@@ -40,6 +54,29 @@ class TwigReadingTimeFilters extends Twig_Extension
 
     $minutes_short_count = floor($words / $wpm);
     $seconds_short_count = floor($words % $wpm / ($wpm / 60));
+
+    if ($options['include_image_views']) {
+      $stripped = strip_tags($content, "<img>");
+      $images_in_content = substr_count($stripped, "<img ");
+
+      if ($images_in_content > 0) {
+        if ($this->validatePattern($options['seconds_per_image'])) {
+
+          // assumes string only contains integers, commas, and whitespace
+          $spi = preg_split('/\D+/', trim($options['seconds_per_image']));
+          $seconds_images = 0;
+
+          for ($i = 0; $i < $images_in_content; ++$i) {
+            $seconds_images += $i < count($spi) ? $spi[$i] : end($spi);
+          }
+
+          $minutes_short_count += floor($seconds_images / 60);
+          $seconds_short_count += $seconds_images % 60;
+        } else {
+          $this->grav['log']->error("Plugin 'readingtime' - seconds_per_image failed regex vadation");
+        }
+      }
+    }
 
     $round = $options['round'];
     if ($round == 'minutes') {
