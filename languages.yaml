@@ -26,6 +26,13 @@ fr:
     MINUTE: minute
     MINUTES: minutes
 
+hr:
+  PLUGIN_READINGTIME:
+    SECOND: sekunda
+    SECONDS: sekundi
+    MINUTE: minuta
+    MINUTES: minuta
+
 it:
   PLUGIN_READINGTIME:
     SECOND: secondo
@@ -33,6 +40,13 @@ it:
     MINUTE: minuto
     MINUTES: minuti
     
+nl:
+  PLUGIN_READINGTIME:
+    SECOND: seconde
+    SECONDS: seconden
+    MINUTE: minuut
+    MINUTES: minuten
+
 pt-BR:
   PLUGIN_READINGTIME:
     SECOND: segundo

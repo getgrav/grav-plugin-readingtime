@@ -1,3 +1,17 @@
+# v1.4.0
+## 05/13/2020
+
+1. [](#new)
+    * Added optional features to include additional reading time for images [#16](https://github.com/getgrav/grav-plugin-readingtime/pull/16)
+    * Started using composer
+1. [](#improved)   
+    * Added hungarian translation [#12](https://github.com/getgrav/grav-plugin-readingtime/pull/12) 
+    * Added dutch translation [#14](https://github.com/getgrav/grav-plugin-readingtime/pull/14)
+    * PHPStan 7 fixes
+1. [](#bugfix)
+    * Fixed issue with passed in labels [#18](https://github.com/getgrav/grav-plugin-readingtime/pull/18)
+    * Fixed plugin initialization
+
 # v1.3.0
 ## 12/10/2018
 

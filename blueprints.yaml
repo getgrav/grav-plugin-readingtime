@@ -1,5 +1,5 @@
 name: Reading Time
-version: 1.3.0
+version: 1.4.0
 description: "Add human readable reading time to your pages."
 icon: clock-o
 author:
@@ -49,3 +49,24 @@ form:
       options:
           seconds: second
           minutes: minute
+
+    include_image_views:
+      type: toggle
+      label: Include time for viewing images
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+
+    seconds_per_image:
+      type: text
+      label: Seconds to view images
+      help: 'Comma-separated list of whole numbers where first number is the number of seconds to view the first image, second number for the second image, and so on. Example: 12,10,11'
+      default: '12,11,10,9,8,7,6,5,4,3'
+      validate:
+        required: true
+        pattern: '(^(\s*\d+\s*))?(,\s*\d+\s*)*'
+        message: 'Must be a comma-separated list of whole numbers (e.g. 12,11,10) with at least one number'
