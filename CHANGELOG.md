@@ -1,5 +1,5 @@
 # v1.4.0
-## mm/dd/2019
+## 05/13/2020
 
 1. [](#new)
     * Added optional features to include additional reading time for images [#16](https://github.com/getgrav/grav-plugin-readingtime/pull/16)
