@@ -36,6 +36,23 @@ form:
         min: 1
         max: 1000
 
+    estimate_range:
+      type: text
+      size: x-small
+      append: ±%
+      help: 'Percentage to add and remove from the reading time estimate to get a reading time range. 10% on a 10-minute read would give 9–11 minutes.'
+      label: Reading time estimate range
+      validate:
+        type: int
+        min: 0
+        max: 100
+
+    range_str:
+      type: text
+      label: Estimate range string
+      help: 'String to use between the low and high estimate range numbers (e.g., "—", "-", " to ", etc.).'
+      size: x-small
+
     format:
       type: text
       label: Format
