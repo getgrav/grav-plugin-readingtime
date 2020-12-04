@@ -105,6 +105,23 @@ class TwigReadingTimeFilters extends Twig_Extension
 
     $minutes_long_count = number_format($minutes_short_count, 2);
     $seconds_long_count = number_format($seconds_short_count, 2);
+    $minutes_low_range_long = number_format($minutes_low_range, 2);
+    $minutes_high_range_long = number_format($minutes_high_range, 2);
+
+    if ($minutes_low_range == $minutes_high_range or $minutes_low_range == 0) {
+      $minutes_range_short = $minutes_short_count;
+      $minutes_range_long = $minutes_long_count;
+    } elseif ($minutes_low_range == 0) {
+      $minutes_range_short = $minutes_short_count;
+      $minutes_range_long = $minutes_long_count;
+    } else {
+      $minutes_range_short = (
+        $minutes_low_range . $range_str . $minutes_high_range
+      );
+      $minutes_range_long = (
+        $minutes_low_range_long . $range_str . $minutes_high_range_long
+      );
+    }
 
     if (array_key_exists('minute_label', $options) and $minutes_short_count == 1) {
       $minutes_text = $options['minute_label'];
