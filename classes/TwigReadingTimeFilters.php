@@ -51,6 +51,8 @@ class TwigReadingTimeFilters extends Twig_Extension
 
     $words = count(preg_split('/\s+/', strip_tags($content)) ?: []);
     $wpm = $options['words_per_minute'];
+    $estimate_range = ($options['estimate_range'] / 100);
+    $range_str = $options['range_str'];
 
     $minutes_short_count = floor($words / $wpm);
     $seconds_short_count = floor($words % $wpm / ($wpm / 60));
@@ -91,7 +93,7 @@ class TwigReadingTimeFilters extends Twig_Extension
 
     $minutes_long_count = number_format($minutes_short_count, 2);
     $seconds_long_count = number_format($seconds_short_count, 2);
-    
+
     if (array_key_exists('minute_label', $options) and $minutes_short_count == 1) {
       $minutes_text = $options['minute_label'];
     } elseif (array_key_exists('minutes_label', $options) and $minutes_short_count > 1) {
