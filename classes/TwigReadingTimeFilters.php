@@ -109,16 +109,16 @@ class TwigReadingTimeFilters extends Twig_Extension
     $minutes_high_range_long = number_format($minutes_high_range, 2);
 
     if ($minutes_low_range == $minutes_high_range or $minutes_low_range == 0) {
-      $minutes_range_short = $minutes_short_count;
-      $minutes_range_long = $minutes_long_count;
+      $minutes_short_range = $minutes_short_count;
+      $minutes_long_range = $minutes_long_count;
     } elseif ($minutes_low_range == 0) {
-      $minutes_range_short = $minutes_short_count;
-      $minutes_range_long = $minutes_long_count;
+      $minutes_short_range = $minutes_short_count;
+      $minutes_long_range = $minutes_long_count;
     } else {
-      $minutes_range_short = (
+      $minutes_short_range = (
         $minutes_low_range . $range_str . $minutes_high_range
       );
-      $minutes_range_long = (
+      $minutes_long_range = (
         $minutes_low_range_long . $range_str . $minutes_high_range_long
       );
     }
@@ -141,10 +141,10 @@ class TwigReadingTimeFilters extends Twig_Extension
 
     $replace = [
       'minutes_short_count' => $minutes_short_count,
-      'minutes_range_short' => $minutes_range_short,
+      'minutes_short_range' => $minutes_short_range,
       'seconds_short_count' => $seconds_short_count,
       'minutes_long_count'  => $minutes_long_count,
-      'minutes_range_long'  => $minutes_range_long,
+      'minutes_long_range'  => $minutes_long_range,
       'seconds_long_count'  => $seconds_long_count,
       'minutes_text'        => $minutes_text,
       'seconds_text'        => $seconds_text
