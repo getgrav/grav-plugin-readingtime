@@ -57,6 +57,9 @@ class TwigReadingTimeFilters extends Twig_Extension
     $minutes_short_count = floor($words / $wpm);
     $seconds_short_count = floor($words % $wpm / ($wpm / 60));
 
+    $minutes_low_range = floor(($words * (1 - $estimate_range)) / $wpm);
+    $minutes_high_range = floor(($words * (1 + $estimate_range)) / $wpm);
+
     if ($options['include_image_views']) {
       $stripped = strip_tags($content, "<img>");
       $images_in_content = substr_count($stripped, "<img ");
@@ -74,6 +77,9 @@ class TwigReadingTimeFilters extends Twig_Extension
 
           $minutes_short_count += floor($seconds_images / 60);
           $seconds_short_count += $seconds_images % 60;
+
+          $minutes_low_range += floor(($seconds_images * (1 - $estimate_range)) / 60);
+          $minutes_high_range += floor(($seconds_images * (1 - $estimate_range)) / 60);
         } else {
           $this->grav['log']->error("Plugin 'readingtime' - seconds_per_image failed regex vadation");
         }
@@ -82,10 +88,16 @@ class TwigReadingTimeFilters extends Twig_Extension
 
     $round = $options['round'];
     if ($round == 'minutes') {
-      $minutes_short_count = round(($minutes_short_count*60 + $seconds_short_count) / 60);
+      $minutes_short_count = round(($minutes_short_count * 60 + $seconds_short_count) / 60);
+
+      $minutes_low_range = round(($minutes_low_range * 60 + $seconds_low_range) / 60);
+      $minutes_high_range = round(($minutes_high_range * 60 + $seconds_high_range) / 60);
 
       if ( $minutes_short_count < 1 ) {
         $minutes_short_count = 1;
+
+        $minutes_low_range = 0;
+        $minutes_high_range = 1;
       }
 
       $seconds_short_count = 0;
