@@ -140,12 +140,14 @@ class TwigReadingTimeFilters extends Twig_Extension
     }
 
     $replace = [
-      'minutes_short_count'   => $minutes_short_count,
-      'seconds_short_count'   => $seconds_short_count,
-      'minutes_long_count'    => $minutes_long_count,
-      'seconds_long_count'    => $seconds_long_count,
-      'minutes_text'          => $minutes_text,
-      'seconds_text'          => $seconds_text
+      'minutes_short_count' => $minutes_short_count,
+      'minutes_range_short' => $minutes_range_short,
+      'seconds_short_count' => $seconds_short_count,
+      'minutes_long_count'  => $minutes_long_count,
+      'minutes_range_long'  => $minutes_range_long,
+      'seconds_long_count'  => $seconds_long_count,
+      'minutes_text'        => $minutes_text,
+      'seconds_text'        => $seconds_text
     ];
 
     $result = $options['format'];
