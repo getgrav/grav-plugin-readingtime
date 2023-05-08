@@ -1,3 +1,9 @@
+# v1.4.1
+## mm/dd/2023
+
+1. [](#improved)   
+   * Fixed a deprecated message where `null` was being passed to `strip_tags()` function
+
 # v1.4.0
 ## 05/13/2020
 

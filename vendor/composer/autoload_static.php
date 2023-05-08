@@ -21,6 +21,7 @@ class ComposerStaticInitba8cc29b2b127a27a57127d33945f8aa
     );
 
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Grav\\Plugin\\ReadingTimePlugin' => __DIR__ . '/../..' . '/readingtime.php',
     );
 
