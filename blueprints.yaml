@@ -1,5 +1,5 @@
 name: Reading Time
-version: 1.4.1
+version: 1.4.2
 description: "Add human readable reading time to your pages."
 icon: clock-o
 author:
@@ -11,6 +11,9 @@ demo: http://www.getgrav.org/blog
 keywords: readingtime, plugin
 bugs: https://github.com/getgrav/grav-plugin-readingtime/issues
 license: MIT
+
+compatibility:
+  grav: ['1.7', '2.0']
 
 form:
   validation: strict
