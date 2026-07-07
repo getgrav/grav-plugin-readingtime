@@ -1,5 +1,7 @@
 enabled: true
 words_per_minute: 200
+estimate_range: 15
+range_str: "–"
 format: "{minutes_short_count} {minutes_text}, {seconds_short_count} {seconds_text}"
 round: seconds
 include_image_views: false
