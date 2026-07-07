@@ -1,49 +1,60 @@
 <?php
-
 namespace Grav\Plugin;
 
-use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
-use Grav\Plugin\ReadingTime\TwigReadingTimeFilters;
+use RocketTheme\Toolbox\Event\Event;
 
 class ReadingTimePlugin extends Plugin
 {
     public static function getSubscribedEvents()
     {
         return [
-            'onPluginsInitialized' => [
-                ['autoload', 100000],
-                ['onPluginsInitialized', 0]
-            ]
+            'onPageContentProcessed' => ['onPageContentProcessed', 0]
         ];
     }
 
-    /**
-     * [onPluginsInitialized:100000] Composer autoload.
-     *
-     * @return ClassLoader
-     */
-    public function autoload()
+    public function onPageContentProcessed(Event $event)
     {
-        return require __DIR__ . '/vendor/autoload.php';
-    }
+        $page = $event['page'];
+        $cacheKey = 'readingtime-' . $page->id();
 
-    public function onPluginsInitialized()
-    {
-        if ($this->isAdmin()) {
-            $this->active = false;
-            return;
+        // Ensure synchronous cache access
+        $readingTime = $this->grav['cache']->fetch($cacheKey);
+        if ($readingTime === false) {
+            $content = $page->content();
+            $readingTime = $this->calculateReadingTime($content);
+            $this->grav['cache']->save($cacheKey, $readingTime);
         }
 
-        $this->enable([
-            'onTwigExtensions' => [
-                ['onTwigExtensions', 0]
-            ]
-        ]);
+        $this->modifyHeader($page, $readingTime);
     }
 
-    public function onTwigExtensions()
+    private function modifyHeader($page, $readingTime)
     {
-        $this->grav['twig']->twig->addExtension(new TwigReadingTimeFilters());
+        $header = $page->header();
+
+        $minutes_short_count = $readingTime;
+        $minutes_text = ($minutes_short_count == 1) ?
+            $this->grav['language']->translate('PLUGIN_READINGTIME.MINUTE') :
+            $this->grav['language']->translate('PLUGIN_READINGTIME.MINUTES');
+
+        $readingTimeString = sprintf(
+            '%s: %s %s',
+            $this->grav['language']->translate('PLUGIN_READINGTIME.READING_LABEL'),
+            $minutes_short_count,
+            $minutes_text
+        );
+
+        $header->readingTime = $readingTimeString;
+        $page->header($header);
+    }
+
+    private function calculateReadingTime($text)
+    {
+        $wordCount = str_word_count(strip_tags($text));
+        $wordsPerMinute = 200;
+        $readingTime = ceil($wordCount / $wordsPerMinute);
+
+        return $readingTime;
     }
 }

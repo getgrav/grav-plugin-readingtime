@@ -1,6 +1,11 @@
-# Grav ReadingTime Plugin
+# Grav <sup>Better</sup>ReadingTime Plugin
 
-**ReadingTime** is a [Grav](http://github.com/getgrav/grav) plugin which allows Grav to display the reading time of a page's content. This is especially useful for blogs and other sites as it gives the reader a quick idea of how much time they will need to set aside to read the page in full.
+**<sup>Better</sup>ReadingTime** is a [Grav](http://github.com/getgrav/grav) plugin which allows Grav to display the reading time of a page's content. This is especially useful for blogs and other sites as it gives the reader a quick idea of how much time they will need to set aside to read the page in full.
+
+***This fork differs from the original in three main ways:***
+1. ***Reading label is translated, not just "minutes" and "seconds".***
+2. ***Reading time (and label) is cached, in translated form, in the page headers of every page. This negates the need to run the calculation on every page load if reading time is present in the frontmatter.***
+3. ***Disabled seconds. Reading time is rounded to the nearest minute for a cleaner view.***
 
 Enabling the plugin is very simple. Just install the plugin folder to `/user/plugins/` in your Grav install. By default, the plugin is enabled.
 
@@ -21,48 +26,14 @@ The contents of the zipped folder should now be located in the `/your/site/grav/
 Place the following line of code in the theme file you wish to add the ReadingTime plugin for:
 
 ```
-{{ page.content|readingtime }}
+{% if config.plugins.readingtime.enabled %}
+{{ page.header.readingTime }}{{ page|readingtime }}
+{% endif %}
 ```
 
-You need to pass a Twig Filter 'readingtime' to display the reading time values. You can translate the labels with this example:
+You need both of these twig variables to make it work. I can't remember why both are required, but if I remove either one it breaks. So just use both.
 
-```
-{{ page.content|readingtime({'minutes_label': 'Minuti', 'minute_label': 'Minuto', 'seconds_label': 'Secondi', 'second_label': 'Secondo'}) }}
-```
-
-I used Italian translation for the labels, you can change with your language.
-
-If you need you can change the format with this avariable variables (the code is default format):
-
-```
-{{ page.content|readingtime({'format': '{minutes_short_count} {minutes_text}, {seconds_short_count} {seconds_text}'}) }}
-```
-
-Available variables:
-
-|      Variable     |       Description       |                                   Example                                    |
-| :---------------- | :---------------------- | :--------------------------------------------------------------------------- |
-| `{minute_label}`  | Minute Label (Singular) | `minute`                                                                     |
-| `{minutes_label}` | Minutes Label (Plural)  | `minutes`                                                                    |
-| `{second_label}`  | Second Label (Singular) | `second`                                                                     |
-| `{seconds_label}` | Second Label (Plural)   | `seconds`                                                                    |
-| `{format}`        | Display Format          | `{minutes_text} {minutes_short_count}, {seconds_text} {seconds_short_count}` |
-
-Not available to edit but used in the format variable:
-
-|         Variable        |               Description                | Example |
-| :---------------------- | :--------------------------------------- | :------ |
-| `{minutes_short_count}` | Displays Minutes with Abbreviated Digits | `2`     |
-| `{seconds_short_count}` | Displays Seconds with Abbreviated Digits | `9`     |
-| `{minutes_long_count}`  | Displays Minutes in Double Digits        | `02`    |
-| `{seconds_long_count}`  | Displays Seconds in Double Digits        | `09`    |
-
-Display variables for text labels:
-
-|     Variable     |                                   Description                                    |  Example  |
-| :--------------- | :------------------------------------------------------------------------------- | :-------- |
-| `{minutes_text}` | Displays the Minutes Text Label (Singular or Plural, Based on Number of Minutes) | `minute`  |
-| `{seconds_text}` | Displays the Seconds Text Label (Singular or Plural, Based on Number of Seconds) | `seconds` |
+I haven't tested image views so I can't tell you if they still work. I also dabbled with the "estimated reading time" PR on the original repo but eventually decided not to include it, so you might find vestigial code from that PR here that I forgot to clean up.
 
 >> NOTE: Any time you are making alterations to a theme's files, you will want to duplicate the theme folder in the `user/themes/` directory, rename it, and set the new name as your active theme. This will ensure that you don't lose your customizations in the event that a theme is updated. Once you have tested the change thoroughly, you can delete or back up that folder elsewhere.
 

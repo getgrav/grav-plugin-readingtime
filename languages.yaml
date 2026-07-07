@@ -4,6 +4,7 @@ en:
     SECONDS: seconds
     MINUTE: minute
     MINUTES: minutes
+    READING_LABEL: 'Reading time'
 
 cs:
   PLUGIN_READINGTIME:
@@ -11,6 +12,7 @@ cs:
     SECONDS: sekundy
     MINUTE: minuta
     MINUTES: minuty
+    READING_LABEL: 'Čas na čtení'
 
 es:
   PLUGIN_READINGTIME:
@@ -18,6 +20,7 @@ es:
     SECONDS: segundos
     MINUTE: minuto
     MINUTES: minutos
+    READING_LABEL: 'Tiempo de lectura'
 
 fr:
   PLUGIN_READINGTIME:
@@ -25,6 +28,7 @@ fr:
     SECONDS: secondes
     MINUTE: minute
     MINUTES: minutes
+    READING_LABEL: 'Temps de lecture'
 
 hr:
   PLUGIN_READINGTIME:
@@ -32,6 +36,7 @@ hr:
     SECONDS: sekundi
     MINUTE: minuta
     MINUTES: minuta
+    READING_LABEL: 'Olvasási idő'
 
 it:
   PLUGIN_READINGTIME:
@@ -39,6 +44,7 @@ it:
     SECONDS: secondi
     MINUTE: minuto
     MINUTES: minuti
+    READING_LABEL: 'Momento della lettura'
     
 nl:
   PLUGIN_READINGTIME:
@@ -46,13 +52,23 @@ nl:
     SECONDS: seconden
     MINUTE: minuut
     MINUTES: minuten
+    READING_LABEL: Leestijd
 
+pt:
+  PLUGIN_READINGTIME:
+    SECOND: segundo
+    SECONDS: segundos
+    MINUTE: minuto
+    MINUTES: minutos
+    READING_LABEL: 'Tempo de leitura'
+    
 pt-BR:
   PLUGIN_READINGTIME:
     SECOND: segundo
     SECONDS: segundos
     MINUTE: minuto
     MINUTES: minutos
+    READING_LABEL: 'Tempo de leitura'
 
 de:
   PLUGIN_READINGTIME:
@@ -60,3 +76,12 @@ de:
     SECONDS: Sekunden
     MINUTE: Minute
     MINUTES: Minuten
+    READING_LABEL: Lesezeit
+
+ar:
+  PLUGIN_READINGTIME:
+    SECOND: ثانية
+    SECONDS: ثواني
+    MINUTE: دقيقة
+    MINUTES: دقائق
+    READING_LABEL: 'وقت القراءة'
