@@ -60,3 +60,10 @@ de:
     SECONDS: Sekunden
     MINUTE: Minute
     MINUTES: Minuten
+    
+el:
+  PLUGIN_READINGTIME:
+    SECOND: δευτερόλεπτο
+    SECONDS: δευτερόλεπτα
+    MINUTE: λεπτό
+    MINUTES: λεπτά    
