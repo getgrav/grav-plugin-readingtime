@@ -47,6 +47,13 @@ nl:
     MINUTE: minuut
     MINUTES: minuten
 
+pt:
+  PLUGIN_READINGTIME:
+    SECOND: segundo
+    SECONDS: segundos
+    MINUTE: minuto
+    MINUTES: minutos
+    
 pt-BR:
   PLUGIN_READINGTIME:
     SECOND: segundo
@@ -60,3 +67,9 @@ de:
     SECONDS: Sekunden
     MINUTE: Minute
     MINUTES: Minuten
+ar:
+  PLUGIN_READINGTIME:
+    SECOND: ثانية
+    SECONDS: ثواني
+    MINUTE: دقيقة
+    MINUTES: دقائق
